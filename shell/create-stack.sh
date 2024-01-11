@@ -3,7 +3,7 @@
 # chmod u+x create-stack.sh
 # source ./create-stack.sh
 
-export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+export ACCOUNT_ID=$(aws sts get-caller-identity --profile ${AWS_PROFILE} --query Account --output text)
 export S3_ARTIFACT_BUCKET_NAME=$STACK_NAME-$ACCOUNT_ID
 export DATA_LOADER_S3_KEY="agent/lambda/data-loader/loader_deployment_package.zip"
 export LAMBDA_HANDLER_S3_KEY="agent/lambda/agent-handler/agent_deployment_package.zip"
